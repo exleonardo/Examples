@@ -3,6 +3,7 @@ import "./App.css";
 import Accordion from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
 import OnOf from "./components/OnOf/OnOf";
+import UnControlledAccordion from "./components/UnControlledAccordion/UnControlledAccordion";
 
 const App = () => {
 
@@ -16,8 +17,11 @@ const App = () => {
       <Rating value={3}/>
       <Rating value={4}/>
       <Rating value={5}/>
-      <OnOf on={false}/>
-
+      <OnOf/>
+      <OnOf/>
+      <OnOf/>
+      <OnOf/>
+      <UnControlledAccordion title={"Menu"}/>
     </div>
   )
 };

@@ -1,8 +1,6 @@
 import {useState} from "react";
 
-export type OnOfType = {
-  on: boolean
-}
+export type OnOfType = {}
 
 
 const OnOf = (props: OnOfType) => {
