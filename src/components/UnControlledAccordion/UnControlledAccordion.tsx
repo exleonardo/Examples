@@ -9,9 +9,8 @@ const UnControlledAccordion = (props: AccordionPropsType) => {
   let [collapsedMenu, setcollapsedMenu] = useState(true)
 
   return (<>
-      <AccordionTitle title={props.title}/>
-      <button onClick={() => setcollapsedMenu(false)}>SWIPE</button>
-      <button onClick={() => setcollapsedMenu(true)}>CLOSE</button>
+      <AccordionTitle title={props.title} onClick={() => setcollapsedMenu(!collapsedMenu)}/>
+      {/*<button onClick={() => setcollapsedMenu(!collapsedMenu)}>Switch</button>*/}
       {!collapsedMenu && <AccordionBody/>}
     </>
 
@@ -20,18 +19,21 @@ const UnControlledAccordion = (props: AccordionPropsType) => {
 
 type AccordionTitlePropsType = {
   title: string
+  onClick: () => void
 }
 const AccordionTitle = (props: AccordionTitlePropsType) => {
-  console.log(`Rendering AccordionTitle`)
+
   return (
     <>
-      <h3>{props.title}</h3>
+      <h3 onClick={() => {
+        props.onClick()
+      }}>{props.title}</h3>
     </>
   )
 }
 
 const AccordionBody = () => {
-  console.log(`Rendering AccordionBody`)
+
   return (<>
     <ul>
       <li>1</li>
