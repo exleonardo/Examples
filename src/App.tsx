@@ -13,7 +13,8 @@ const App = () => {
     <div>
       <PageTitle title={`this is APP component`}/>
       {/*<Accordion title={`Users`} collapsedMenu={setAccordionCollapsed}/>*/}
-      <Accordion title={`Menu`} collapsedMenu={setAccordionCollapsed} accordionCollapsed={accordionCollapsed}/>
+      <Accordion title={`Menu`} collapsedMenu={() => setAccordionCollapsed(!accordionCollapsed)}
+                 accordionCollapsed={accordionCollapsed}/>
       <Rating value={ratingValue} onClick={setRatingValue}/>
       {/*<Rating value={2}/>*/}
       {/*<Rating value={3}/>*/}

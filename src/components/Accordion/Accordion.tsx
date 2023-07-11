@@ -3,12 +3,12 @@ import React from "react";
 
 type AccordionPropsType = {
   title: string,
-  collapsedMenu: (value: boolean) => void
+  collapsedMenu: () => void
   accordionCollapsed: boolean
 }
 const Accordion = (props: AccordionPropsType) => {
   return (<>
-      <AccordionTitle title={props.title} collapsedMenu={() => props.collapsedMenu(!props.accordionCollapsed)}/>
+      <AccordionTitle title={props.title} collapsedMenu={props.collapsedMenu}/>
       {props.accordionCollapsed && <AccordionBody/>}
     </>
 
@@ -23,7 +23,7 @@ type AccordionTitlePropsType = {
 const AccordionTitle = (props: AccordionTitlePropsType) => {
   return (
     <>
-      <h3 onClick={() => props.collapsedMenu()}>{props.title}</h3>
+      <h3 onClick={props.collapsedMenu}>{props.title}</h3>
     </>
   )
 }
