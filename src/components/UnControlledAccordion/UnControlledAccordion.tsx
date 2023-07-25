@@ -1,45 +1,44 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 
-type AccordionPropsType = {
+export type AccordionPropsType = {
   title: string,
   // collapsedMenu: boolean
 }
-const UnControlledAccordion = (props: AccordionPropsType) => {
-  let [collapsedMenu, setcollapsedMenu] = useState(true)
+export const UnControlledAccordion = (props: AccordionPropsType) => {
+  let [ collapsedMenu, setcollapsedMenu ] = useState(true)
 
-  return (<>
-      <AccordionTitle title={props.title} onClick={() => setcollapsedMenu(!collapsedMenu)}/>
-      {/*<button onClick={() => setcollapsedMenu(!collapsedMenu)}>Switch</button>*/}
-      {!collapsedMenu && <AccordionBody/>}
+  return ( <>
+      <AccordionTitle title={ props.title } onClick={ () => setcollapsedMenu(!collapsedMenu) }/>
+      { !collapsedMenu && <AccordionBody/> }
     </>
 
   )
 }
 
-type AccordionTitlePropsType = {
+export type AccordionTitlePropsType = {
   title: string
   onClick: () => void
 }
-const AccordionTitle = (props: AccordionTitlePropsType) => {
+export const AccordionTitle = (props: AccordionTitlePropsType) => {
 
   return (
     <>
-      <h3 onClick={() => {
+      <h3 onClick={ () => {
         props.onClick()
-      }}>{props.title}</h3>
+      } }>{ props.title }</h3>
     </>
   )
 }
 
-const AccordionBody = () => {
+export const AccordionBody = () => {
 
-  return (<>
+  return ( <>
     <ul>
       <li>1</li>
       <li>2</li>
       <li>3</li>
     </ul>
-  </>)
+  </> )
 }
-export default UnControlledAccordion
+

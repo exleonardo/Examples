@@ -6,10 +6,10 @@ type AccordionPropsType = {
   collapsedMenu: () => void
   accordionCollapsed: boolean
 }
-const Accordion = (props: AccordionPropsType) => {
-  return (<>
-      <AccordionTitle title={props.title} collapsedMenu={props.collapsedMenu}/>
-      {props.accordionCollapsed && <AccordionBody/>}
+export const Accordion = (props: AccordionPropsType) => {
+  return ( <>
+      <AccordionTitle title={ props.title } collapsedMenu={ props.collapsedMenu }/>
+      { props.accordionCollapsed && <AccordionBody/> }
     </>
 
   )
@@ -23,19 +23,19 @@ type AccordionTitlePropsType = {
 const AccordionTitle = (props: AccordionTitlePropsType) => {
   return (
     <>
-      <h3 onClick={props.collapsedMenu}>{props.title}</h3>
+      <h3 onClick={ (e) => props.collapsedMenu() }>{ props.title }</h3>
     </>
   )
 }
 
 const AccordionBody = () => {
 
-  return (<>
+  return ( <>
     <ul>
       <li>1</li>
       <li>2</li>
       <li>3</li>
     </ul>
-  </>)
+  </> )
 }
 export default Accordion
