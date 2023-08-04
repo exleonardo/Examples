@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import Accordion from "./components/Accordion/Accordion";
+import { Accordion } from "./components/Accordion/Accordion";
 import { Rating, RatingValueType } from "./components/Rating/Rating";
 // import OnOf from "./components/OnOf/OnOf";
 
@@ -17,8 +17,9 @@ const App = () => {
     <div>
       <PageTitle title={ `this is APP component` }/>
       {/*<Accordion title={`Users`} collapsedMenu={setAccordionCollapsed}/>*/ }
-      <Accordion title={ `Menu` } collapsedMenu={ () => setAccordionCollapsed(!accordionCollapsed) }
-                 accordionCollapsed={ accordionCollapsed }/>
+      <Accordion onClick={ () => {} } title={ `Menu` }
+                 collapsedMenu={ () => setAccordionCollapsed(!accordionCollapsed) }
+                 accordionCollapsed={ accordionCollapsed } items={ [] }/>
       <Rating value={ ratingValue } onClick={ setRatingValue }/>
       {/*<Rating value={2}/>*/ }
       {/*<Rating value={3}/>*/ }
