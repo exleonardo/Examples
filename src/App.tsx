@@ -7,6 +7,7 @@ import { Rating, RatingValueType } from "./components/Rating/Rating";
 import { UnControlledAccordion } from "./components/UnControlledAccordion/UnControlledAccordion";
 import { UnContolRating } from "./components/UnControlRating/UnContolRating";
 import { UncontrolledOnOf } from "./components/UnControlledOnOf/UncontrolledOnOf";
+import Select from "./components/Select/Select";
 
 
 const App = () => {
@@ -29,6 +30,10 @@ const App = () => {
       <UncontrolledOnOf onChange={ setSwitchOn }/>{ switchOn.toString() }
       <UnControlledAccordion title={ "Menu" }/>
       <UnContolRating onChange={ () => {} }/>
+      <Select value={ "Egypt" } onChange={ () => {} } items={ [
+        {title: "CSS", value: 1}, {title: "HTML", value: 2},
+        {title: "JS", value: 3}, {title: "React", value: 4}
+      ] }/>
     </div>
   )
 };
