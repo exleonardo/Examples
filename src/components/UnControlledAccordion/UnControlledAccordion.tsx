@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
+import { reducer, TOGGLE_COLLAPSED } from "./Reducer";
 
 
 export type AccordionPropsType = {
@@ -6,11 +7,12 @@ export type AccordionPropsType = {
   // collapsedMenu: boolean
 }
 export const UnControlledAccordion = (props: AccordionPropsType) => {
-  let [ collapsedMenu, setcollapsedMenu ] = useState(true)
+  //let [ collapsedMenu, setcollapsedMenu ] = useState(true)
+  let [ state, dispatch ] = useReducer(reducer, {collapsed: false})
 
   return ( <>
-      <AccordionTitle title={ props.title } onClick={ () => setcollapsedMenu(!collapsedMenu) }/>
-      { !collapsedMenu && <AccordionBody/> }
+      <AccordionTitle title={ props.title } onClick={ () => dispatch({type: TOGGLE_COLLAPSED}) }/>
+      { !state.collapsed && <AccordionBody/> }
     </>
 
   )
