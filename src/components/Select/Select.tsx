@@ -11,7 +11,9 @@ type SelectPropsType = {
   onChange: (value: any) => void
   items: ItemType[]
 }
+
 export const Select = (props: SelectPropsType) => {
+  console.log ("Render")
   const selectedItem = props.items.find((el) => el.value === props.value)
 
   const [ active, setActive ] = useState(false)
@@ -34,7 +36,6 @@ export const Select = (props: SelectPropsType) => {
       for ( let i = 0; i < props.items.length; i++ ) {
         if (props.items[i].value === hoveredElementValue) {
           const pretendentElement = e.key === "ArrowDown" ? props.items[i + 1] : props.items[i - 1]
-
           if (pretendentElement) {
             setHoveredElementValue(pretendentElement.value)
             return
@@ -70,9 +71,10 @@ export const Select = (props: SelectPropsType) => {
 
 };
 
-export default Select;
 
 
+const Selected = React.memo(Select)
+export default Selected;
 /*
 const [ title, setTitle ] = useState(false)
   const onClickDiv = () => {
